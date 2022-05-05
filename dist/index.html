@@ -5,9 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Tasky</title>
+    <title>TaskIt</title>
 </head>
 <body>
+    <div class="main-container">
+        <div class="project-container" id="project-container">
+            <h2 class="project-header">Projects</h2>
+            <button class="project-addbtn" id="project-addbtn">Add Project</button>
+            <!-- Project cards -->
+
+        </div>
+
+        <div class="task-container" id="task-container">
+            <h2 class="task-header">Tasks for Default Project</h2>
+            <button class="task-addbtn" id="addtask-btn">Add Task</button>
+            <!-- Tasks -->
+
+        </div>
+    </div>
+    
+    <dialog class="project-modal" id="project-modal">
+        <h2 class="modal-title">Add your project!</h2>
+        <form class="project-form" id="project-form" method="dialog">
+            <div>
+                <label for="title">Project name:</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div>
+                <label for="date">Due date:</label>
+                <input type="date" name="date" id="date">
+            </div>
+            <div>
+                <label for="priority">Priority</label>
+                <input type="text" name="priority" id="priority">
+            </div>
+            <div class="modal-buttons">
+                <button type="submit" id="submit">Add Project</button>
+                <button type="reset">Reset</button>
+                <button id="closeButton">Exit</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="task-modal" id="task-modal">
+        <h2 class="modal-title">Add your task!</h2>
+        <form class="task-form" id="task-form" method="dialog">
+            <div>
+                <label for="title">Task name:</label>
+                <input type="text" name="title" id="title">
+            </div>
+            <div>
+                <label for="date">Due date:</label>
+                <input type="date" name="date" id="date">
+            </div>
+            <div>
+                <label for="priority">Priority</label>
+                <input type="text" name="priority" id="priority">
+            </div>
+            <div class="modal-buttons">
+                <button type="submit" id="submit">Add Task</button>
+                <button type="reset">Reset</button>
+                <button id="closeButton">Exit</button>
+            </div>
+        </form>
+    </dialog>
+
     <script src="main.js"></script>
 </body>
 </html>
