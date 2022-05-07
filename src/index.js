@@ -2,6 +2,7 @@ import project from './project.js'
 import {Task, tasks, renderTasks} from './task.js'
 import priority from './priority.js'
 import {Project,projects,renderProjects} from './projectDev.js'
+// import project from './project.js'
 
  // DOM Elements
  // Projects
@@ -39,14 +40,15 @@ projectForm.addEventListener('submit', () => {
 
 taskForm.addEventListener('submit', () => {
     const task = new Task(taskForm.title.value, taskForm.date.value, taskForm.priority.value)
-    tasks.push(task);
+    //find current project
+    tasks.push(task)
     renderTasks(tasks)
-    console.log(tasks)
+    // console.log(tasks)
     taskForm.reset()
 })
 
 renderProjects(projects)
-renderTasks(tasks)
+// renderTasks(tasks)
 
 
 
