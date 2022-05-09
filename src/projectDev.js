@@ -1,26 +1,23 @@
-import { renderTasks, tasks } from "./task"
+import { removeElementsByClassname, renderProjectTasks } from "./task"
 
 // Project Class 
-    class Project {
-        constructor(title, dueDate, priority, projectTasks) {
-            this.title = title
-            this.dueDate = dueDate
-            this.priority = priority
-            this.projectTasks = [];
-        }
+class Project {
+    constructor(title, dueDate, priority) {
+        this.title = title
+        this.dueDate = dueDate
+        this.priority = priority
+        this.projectTasks = [];
     }
-
-    
+}
 
 const projectContainer = document.getElementById('project-container')
 const taskHeader = document.getElementById('task-header')
 const defaultProject = new Project('Default Project', '2420-06-06', 'Low')
 const projects = [defaultProject]
 let selectedProject = ''
-
+let correctIndex = 0
 
 let i = 0;
-
 
 //FUNCTIONS ----------------------------------------------------------------------
 
@@ -29,14 +26,16 @@ function createProjectCard(project) {
         projectCard.className = 'project-card'
         projectContainer.appendChild(projectCard)
         projectCard.addEventListener('click', (e) => {
-            
-            // console.log(e.target.parentElement.firstChild.innerText)
-            // taskHeader.textContent = `${e.target.parentElement.firstChild.innerText} Tasks`
-            console.log(project.projectTasks)
-            console.log(e.target.parentElement)
-            // renderTasks(project.projectTasks)
-            // selectedProject = e.target.parentElement.firstChild.innerText
-            // console.log(selectedProject)
+            if (e.target == deleteButton) {
+                console.log('uhoh')
+                return
+            } else {
+            taskHeader.textContent = `Tasks for ${e.target.parentElement.firstChild.innerText}`
+            selectedProject = e.target.parentElement.firstChild.innerText
+            findProject(projects)
+            console.log(correctIndex)
+            renderProjectTasks(projects[correctIndex].projectTasks)
+            }  
         })
         
         const projectTitle = document.createElement('h3')
@@ -65,6 +64,8 @@ function createProjectCard(project) {
   }
 
     function removeCard(card) {
+        removeElementsByClassname('task-card')
+        taskHeader.textContent = "Select/Create a Project!"
         const title = card.target.parentElement.childNodes[0].innerText
         function index(card) {
             return card.title === title
@@ -76,10 +77,25 @@ function createProjectCard(project) {
         i -= 1
     }
 
+    function findProject(projectArray) {
+        for (let i = 0; i < projectArray.length; i++) {
+            // console.log(projects[i].title)
+            if (projectArray[i].title === selectedProject) {
+                console.log(`found: ${selectedProject} index: ${i}`)
+                correctIndex = i
+            }
+        }
+        return correctIndex, selectedProject
+    }
+
 export {
     Project,
     createProjectCard,
     removeCard,
     projects,
-    renderProjects
+    renderProjects,
+    findProject,
+    selectedProject,
+    correctIndex,
+    defaultProject
 };

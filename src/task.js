@@ -1,4 +1,5 @@
-import { projects } from "./projectDev" 
+import { correctIndex, defaultProject, projects } from "./projectDev" 
+
 // Task Class 
     class Task {
         constructor(title, dueDate, priority) {
@@ -16,7 +17,8 @@ const defaultTasks = [
     new Task('Default Task #2', '2420-06-06', 'Low'),
     new Task('Default Task #3', '2420-06-06', 'High')
 ]
-const tasks = []
+
+defaultProject.projectTasks = defaultTasks
 
 let i = 0;
 
@@ -42,7 +44,7 @@ function createTaskCard(task) {
         taskCard.appendChild(taskPriority);
 
         const deleteButton = document.createElement('button')
-        // deleteButton.addEventListener('click', removeCard)
+        deleteButton.addEventListener('click', removeTaskCard)
         deleteButton.className = 'task-delete'
         deleteButton.innerText = 'x'
         taskCard.appendChild(deleteButton);
@@ -51,22 +53,11 @@ function createTaskCard(task) {
         completeButton.className = 'complete-button'
         completeButton.innerText = '✓'
         taskCard.appendChild(completeButton)
-        
+        completeButton.addEventListener('click', () => {
+            taskCard.classList.toggle('completed')
+        })
         
         taskContainer.appendChild(taskCard)
-        // push task card object into correct projectcard array
-        
-        projects[0].projectTasks.push(taskCard)
-
-        // console.log(projects[0].projectTasks)
-        // console.log(projects.title)
-
-        // search(projects, 'test')
-
-
-
-
-
     }
 
     // Render
@@ -76,17 +67,35 @@ function createTaskCard(task) {
         }
     }
 
-    function search(array, term) {
-        for (let x = 0; x < array.length; x++) {
-            if (array[x].title == term) {
-                console.log('yes')
-            }
+    function renderProjectTasks(taskArray) {
+        removeElementsByClassname('task-card')
+        for (let x = 0; x < taskArray.length; x++) {
+            createTaskCard(taskArray[x])
         }
+    }
+
+    function removeElementsByClassname(classname) {
+        const elements = document.getElementsByClassName(classname)
+        while (elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0])
+        }
+    }
+
+    function removeTaskCard(task) {
+        const title = task.target.parentElement.childNodes[0].innerText
+        function index(task) {
+            return task.title === title
+        }
+        console.log(task)
+        projects[correctIndex].projectTasks.splice(projects[correctIndex].projectTasks.findIndex(index), 1)
+        task.target.parentElement.remove()
+        // i -= 1
     }
 
   export {
     Task,
-    tasks,
     defaultTasks,
-    renderTasks
+    renderTasks,
+    renderProjectTasks,
+    removeElementsByClassname
     }

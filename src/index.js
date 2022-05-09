@@ -1,8 +1,8 @@
-import project from './project.js'
-import {Task, tasks, renderTasks} from './task.js'
-import priority from './priority.js'
-import {Project,projects,renderProjects} from './projectDev.js'
-// import project from './project.js'
+import {Task, renderTasks, renderProjectTasks, defaultTasks} from './task.js'
+import {Project,projects,renderProjects,selectedProject} from './projectDev.js'
+
+// Global
+let correctIndex = 0;
 
  // DOM Elements
  // Projects
@@ -24,6 +24,7 @@ addProject.addEventListener('click', () => {
 
 addTask.addEventListener('click', () => {
     taskModal.showModal()
+    console.log(projects)
 })
 
 closeButton.addEventListener('click', () => {
@@ -41,14 +42,25 @@ projectForm.addEventListener('submit', () => {
 taskForm.addEventListener('submit', () => {
     const task = new Task(taskForm.title.value, taskForm.date.value, taskForm.priority.value)
     //find current project
-    tasks.push(task)
-    renderTasks(tasks)
-    // console.log(tasks)
+    findProject(projects)
+    console.log(correctIndex)
+    projects[correctIndex].projectTasks.push(task)
+    renderProjectTasks(projects[correctIndex].projectTasks)
     taskForm.reset()
 })
 
+function findProject(projectArray) {
+    for (let i = 0; i < projectArray.length; i++) {
+        if (projectArray[i].title === selectedProject) {
+            console.log(`found: ${selectedProject} index: ${i}`)
+            correctIndex = i
+        }
+    }
+    return correctIndex, selectedProject
+}
+
 renderProjects(projects)
-// renderTasks(tasks)
+renderTasks(defaultTasks)
 
 
 
