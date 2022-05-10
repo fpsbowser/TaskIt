@@ -43,19 +43,36 @@ function createTaskCard(task) {
         taskPriority.innerText = task.priority
         taskCard.appendChild(taskPriority);
 
-        const deleteButton = document.createElement('button')
+        const deleteButton = document.createElement('img')
         deleteButton.addEventListener('click', removeTaskCard)
         deleteButton.className = 'task-delete'
-        deleteButton.innerText = 'x'
-        taskCard.appendChild(deleteButton);
+        deleteButton.src = '../assets/delete.svg'
+        taskCard.appendChild(deleteButton)
 
-        const completeButton = document.createElement('button')
+        const completeButton = document.createElement('img')
         completeButton.className = 'complete-button'
-        completeButton.innerText = '✓'
+        completeButton.src = '../assets/check-outline.svg'
         taskCard.appendChild(completeButton)
         completeButton.addEventListener('click', () => {
             taskCard.classList.toggle('completed')
+            taskTitle.classList.toggle('completed-title')
         })
+
+
+
+        // const deleteButton = document.createElement('button')
+        // deleteButton.addEventListener('click', removeTaskCard)
+        // deleteButton.className = 'task-delete'
+        // deleteButton.innerText = 'x'
+        // taskCard.appendChild(deleteButton);
+
+        // const completeButton = document.createElement('button')
+        // completeButton.className = 'complete-button'
+        // completeButton.innerText = '✓'
+        // taskCard.appendChild(completeButton)
+        // completeButton.addEventListener('click', () => {
+        //     taskCard.classList.toggle('completed')
+        // })
         
         taskContainer.appendChild(taskCard)
     }

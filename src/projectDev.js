@@ -27,34 +27,49 @@ function createProjectCard(project) {
         projectContainer.appendChild(projectCard)
         projectCard.addEventListener('click', (e) => {
             if (e.target == deleteButton) {
-                console.log('uhoh')
                 return
+            } else if (e.target == projectCard) {
+                taskHeader.textContent = `Tasks for ${e.target.firstChild.innerText}`
+                selectedProject = e.target.firstChild.innerText
+                console.log(e.target)
+                findProject(projects)
+                console.log(correctIndex)
+                renderProjectTasks(projects[correctIndex].projectTasks)
             } else {
-            taskHeader.textContent = `Tasks for ${e.target.parentElement.firstChild.innerText}`
-            selectedProject = e.target.parentElement.firstChild.innerText
-            findProject(projects)
-            console.log(correctIndex)
-            renderProjectTasks(projects[correctIndex].projectTasks)
+                taskHeader.textContent = `Tasks for ${e.target.parentElement.firstChild.innerText}`
+                selectedProject = e.target.parentElement.firstChild.innerText
+                console.log(e.target)
+                findProject(projects)
+                console.log(correctIndex)
+                renderProjectTasks(projects[correctIndex].projectTasks)
             }  
         })
         
         const projectTitle = document.createElement('h3')
         projectTitle.innerHTML = project.title
+        projectTitle.className = 'project-title'
         projectCard.appendChild(projectTitle);
-        
+
+        const deleteButton = document.createElement('img')
+        deleteButton.src = '../assets/delete.svg'
+        deleteButton.addEventListener('click', removeCard)
+        projectCard.appendChild(deleteButton)
+        deleteButton.className = 'project-deletebtn'
+        // const deleteButton = document.createElement('button')
+        // deleteButton.addEventListener('click', removeCard)
+        // deleteButton.className = 'project-deletebtn'
+        // deleteButton.innerText = 'x'
+        // projectCard.appendChild(deleteButton);
+
         const projectDate = document.createElement('p')
         projectDate.innerText = project.dueDate
-        projectCard.appendChild(projectDate);
+        projectDate.className = 'project-date'
+        projectCard.appendChild(projectDate);   
 
         const projectPriority = document.createElement('p')
         projectPriority.innerText = project.priority
-        projectCard.appendChild(projectPriority);
-
-        const deleteButton = document.createElement('button')
-        deleteButton.addEventListener('click', removeCard)
-        deleteButton.className = 'project-deletebtn'
-        deleteButton.innerText = 'x'
-        projectCard.appendChild(deleteButton);
+        projectPriority.className = 'project-priority'
+        projectCard.appendChild(projectPriority); 
     }
 
     function renderProjects(projectArray) {
