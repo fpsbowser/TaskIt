@@ -61,23 +61,3 @@ function findProject(projectArray) {
 
 renderProjects(projects)
 renderTasks(defaultTasks)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// project()
-// task()
-// priority()
-// console.log(project.project)
