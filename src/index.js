@@ -72,10 +72,5 @@ function findProject(projectArray) {
   return correctIndex, selectedProject;
 }
 
-renderProjects(projects);
-renderTasks(defaultTasks);
-
-// project()
-// task()
-// priority()
-// console.log(project.project)
+renderProjects(projects)
+renderTasks(defaultTasks)
