@@ -1,84 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>TaskIt</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main-container">
-        <div class="project-container" id="project-container">
-            <h2 class="project-header">Projects</h2>
-            <img class="project-addbtn" id="project-addbtn" src="../assets/plus.svg" alt="project add button">
-            <!-- <button class="project-addbtn" id="project-addbtn">Add Project</button> -->
-            <!-- Project cards -->
+      <div class="project-container" id="project-container">
+        <h2 class="project-header">Projects</h2>
+        <img
+          class="project-addbtn"
+          id="project-addbtn"
+          src="../assets/plus.svg"
+          alt="project add button"
+        />
+        <!-- <button class="project-addbtn" id="project-addbtn">Add Project</button> -->
+        <!-- Project cards -->
+      </div>
 
-        </div>
-
-        <div class="task-container" id="task-container">
-            <h2 class="task-header" id="task-header">Tasks for Default Project</h2>
-            <img class="task-addbtn" id="addtask-btn" src="../assets/plus.svg" alt="task add button">
-            <!-- <button class="task-addbtn" id="addtask-btn">Add Task</button> -->
-            <!-- Tasks -->
-
-        </div>
+      <div class="task-container" id="task-container">
+        <h2 class="task-header" id="task-header">Tasks for Default Project</h2>
+        <img
+          class="task-addbtn"
+          id="addtask-btn"
+          src="../assets/plus.svg"
+          alt="task add button"
+        />
+        <!-- <button class="task-addbtn" id="addtask-btn">Add Task</button> -->
+        <!-- Tasks -->
+      </div>
     </div>
-    
+
     <dialog class="project-modal" id="project-modal">
-        <h2 class="modal-title">Add your project!</h2>
-        <form class="project-form" id="project-form" method="dialog">
-            <div>
-                <label for="title">Project name:</label>
-                <input type="text" name="title" id="title">
-            </div>
-            <div>
-                <label for="date">Due date:</label>
-                <input type="date" name="date" id="date">
-            </div>
-            <div>
-                <label for="priority">Priority:</label>
-                <input type="text" name="priority" id="priority">
-            </div>
-            <div class="modal-buttons">
-                <button type="submit" id="submit">Add Project</button>
-                <button type="reset">Reset</button>
-                <button id="closeButton">Exit</button>
-            </div>
-        </form>
+      <h2 class="modal-title">Add your project!</h2>
+      <form class="project-form" id="project-form" method="dialog">
+        <div>
+          <label for="title">Project name:</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div>
+          <label for="date">Due date:</label>
+          <input type="date" name="date" id="date" />
+        </div>
+        <div>
+          <label for="priority">Priority:</label>
+          <input type="text" name="priority" id="priority" />
+        </div>
+        <div class="modal-buttons">
+          <button type="submit" id="submit">Add Project</button>
+          <button type="reset">Reset</button>
+          <button id="closeButton">Exit</button>
+        </div>
+      </form>
     </dialog>
 
     <dialog class="task-modal" id="task-modal">
-        <h2 class="modal-title">Add your task!</h2>
-        <form class="task-form" id="task-form" method="dialog">
-            <div>
-                <label for="title">Task name:</label>
-                <input type="text" name="title" id="title">
-            </div>
-            <div>
-                <label for="date">Due date:</label>
-                <input type="date" name="date" id="date">
-            </div>
-            <div>
-                <p>Priority: </p>
-                <input type="radio" name="priority" id="high" value="High">
-                <label for="High">High</label>
-                <br>
-                <input type="radio" name="priority" id="medium" value="Medium">
-                <label for="High">Medium</label>
-                <br>
-                <input type="radio" name="priority" id="low" value="Low">
-                <label for="High">Low</label>
-            </div>
-            <div class="modal-buttons">
-                <button type="submit" id="submit">Add Task</button>
-                <button type="reset">Reset</button>
-                <button id="closeButton">Exit</button>
-            </div>
-        </form>
+      <h2 class="modal-title">Add your task!</h2>
+      <form class="task-form" id="task-form" method="dialog">
+        <div>
+          <label for="title">Task name:</label>
+          <input type="text" name="title" id="title" />
+        </div>
+        <div>
+          <label for="date">Due date:</label>
+          <input type="date" name="date" id="date" />
+        </div>
+        <div>
+          <p>Priority:</p>
+          <input type="radio" name="priority" id="high" value="High" />
+          <label for="High">High</label>
+          <br />
+          <input type="radio" name="priority" id="medium" value="Medium" />
+          <label for="High">Medium</label>
+          <br />
+          <input type="radio" name="priority" id="low" value="Low" />
+          <label for="High">Low</label>
+        </div>
+        <div class="modal-buttons">
+          <button type="submit" id="submit">Add Task</button>
+          <button type="reset">Reset</button>
+          <button id="closeButton">Exit</button>
+        </div>
+      </form>
     </dialog>
 
     <script src="main.js" defer></script>
-</body>
+  </body>
 </html>
