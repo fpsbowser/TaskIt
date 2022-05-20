@@ -21,6 +21,7 @@ const taskForm = document.getElementById("task-form");
 const addTask = document.getElementById("addtask-btn");
 
 const closeButton = document.getElementById("closeButton");
+const taskCloseButton = document.getElementById("taskCloseButton");
 
 // Bind Events
 addProject.addEventListener("click", () => {
@@ -29,12 +30,18 @@ addProject.addEventListener("click", () => {
 
 addTask.addEventListener("click", () => {
   taskModal.showModal();
-  console.log(projects);
+  // console.log(projects);
 });
 
 closeButton.addEventListener("click", () => {
+  console.log('test')
   projectModal.close();
 });
+
+taskCloseButton.addEventListener('click', () => {
+  console.log('test')
+  taskModal.close()
+})
 
 projectForm.addEventListener("submit", () => {
   const project = new Project(

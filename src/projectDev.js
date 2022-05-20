@@ -19,7 +19,7 @@ let correctIndex = 0;
 
 let i = 0;
 
-//FUNCTIONS ----------------------------------------------------------------------
+// FUNCTIONS ----------------------------------------------------------------------
 
 function createProjectCard(project) {
   const projectCard = document.createElement("div");

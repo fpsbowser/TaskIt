@@ -39,15 +39,22 @@
       <form class="project-form" id="project-form" method="dialog">
         <div>
           <label for="title">Project name:</label>
-          <input type="text" name="title" id="title" />
+          <input type="text" name="title" id="title" required/>
         </div>
         <div>
           <label for="date">Due date:</label>
-          <input type="date" name="date" id="date" />
+          <input type="date" name="date" id="date" required/>
         </div>
         <div>
-          <label for="priority">Priority:</label>
-          <input type="text" name="priority" id="priority" />
+          <p>Priority:</p>
+          <input type="radio" name="priority" id="high" value="High" />
+          <label for="High">High</label>
+          <br />
+          <input type="radio" name="priority" id="medium" value="Medium" />
+          <label for="High">Medium</label>
+          <br />
+          <input type="radio" name="priority" id="low" value="Low" checked />
+          <label for="High">Low</label>
         </div>
         <div class="modal-buttons">
           <button type="submit" id="submit">Add Project</button>
@@ -62,11 +69,11 @@
       <form class="task-form" id="task-form" method="dialog">
         <div>
           <label for="title">Task name:</label>
-          <input type="text" name="title" id="title" />
+          <input type="text" name="title" id="title" required/>
         </div>
         <div>
           <label for="date">Due date:</label>
-          <input type="date" name="date" id="date" />
+          <input type="date" name="date" id="date" required/>
         </div>
         <div>
           <p>Priority:</p>
@@ -76,13 +83,13 @@
           <input type="radio" name="priority" id="medium" value="Medium" />
           <label for="High">Medium</label>
           <br />
-          <input type="radio" name="priority" id="low" value="Low" />
+          <input type="radio" name="priority" id="low" value="Low" checked/>
           <label for="High">Low</label>
         </div>
         <div class="modal-buttons">
           <button type="submit" id="submit">Add Task</button>
           <button type="reset">Reset</button>
-          <button id="closeButton">Exit</button>
+          <button id="taskCloseButton">Exit</button>
         </div>
       </form>
     </dialog>
